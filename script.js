@@ -75,6 +75,7 @@ $(document).ready(function () {
             level++; // Переход на следующий уровень
             mrPotatoesToNextLevel += 2; // Увеличиваем количество мистеров картошек для следующего уровня
             $("#level").text("Уровень: " + level); // Отображаем новый уровень
+            $("#mr-potatoes-count").text(mrPotatoesToNextLevel); // Обновляем количество мистеров картошек
             mrPotatoesCount = 0; // Сбрасываем счётчик мистеров картошек
             clearInterval(gameInterval); // Останавливаем текущий интервал
             gameInterval = setInterval(createPotato, 800 - level * 50); // Уменьшаем время появления картошек с каждым уровнем

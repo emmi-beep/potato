@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let score = 0;
     let level = 1; // Начальный уровень
-    let mrPotatoesToNextLevel = 4; // Количество мистеров картошек для перехода на следующий уровень
+    let mrPotatoesToNextLevel = 5; // Количество мистеров картошек для перехода на следующий уровень
     let mrPotatoesCount = 0; // Счётчик мистеров картошек
     let gameInterval;
     const maxLevel = 15; // Максимальный уровень
@@ -18,9 +18,9 @@ $(document).ready(function () {
         let potatoData;
 
         // Определяем тип картошки (10% золотая, 10% гнилая, 80% обычная)
-        if (randomNum < 0.1) {
+        if (randomNum < 0.3) {
             potatoData = { src: "img/mrpot.png", points: 50, type: "mr" }; // Золотая мистер картошка
-        } else if (randomNum < 0.2) {
+        } else if (randomNum < 0.42) {
             potatoData = { src: "img/badpot.png", points: -30, type: "bad" }; // Гнилая
         } else {
             potatoData = { src: "img/potato.png", points: 10, type: "normal" }; // Обычная
@@ -73,7 +73,7 @@ $(document).ready(function () {
     function checkLevelUp() {
         if (mrPotatoesCount >= mrPotatoesToNextLevel && level < maxLevel) {
             level++; // Переход на следующий уровень
-            mrPotatoesToNextLevel += 3; // Увеличиваем количество мистеров картошек для следующего уровня
+            mrPotatoesToNextLevel += 2; // Увеличиваем количество мистеров картошек для следующего уровня
             $("#level").text("Уровень: " + level); // Отображаем новый уровень
             mrPotatoesCount = 0; // Сбрасываем счётчик мистеров картошек
             clearInterval(gameInterval); // Останавливаем текущий интервал
